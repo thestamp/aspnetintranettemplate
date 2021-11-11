@@ -25,6 +25,8 @@ namespace Template.User.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+            services.AddOpenApiDocument(); //registers a OpenAPI v3.0 document with the name "v1" (default)
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +36,9 @@ namespace Template.User.Server
             {
                 app.UseDeveloperExceptionPage();
                 app.UseWebAssemblyDebugging();
+
+                app.UseOpenApi(); //Serves the registered OpenAPI/Swagger documents by default on `/swagger/{documentName}/swagger.json`
+                app.UseSwaggerUi3(); //Serves the Swagger UI 3 web ui to view the OpenAPI/Swagger documents by default on `/swagger`
             }
             else
             {
