@@ -1,6 +1,8 @@
 ﻿@page "/fetchdata"
 @using Template.User.Shared
+@using ServiceClients
 @inject HttpClient Http
+@inject UserServerClient client
 
 <h1>Weather forecast</h1>
 
@@ -36,11 +38,19 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private Template.User.Shared.WeatherForecast[] forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        var forecastResponse = await client.GetAsync();
+
+        forecasts = forecastResponse.Select(i => 
+            new Template.User.Shared.WeatherForecast()
+            {
+                Date = i.Date.Date,
+                TemperatureC = i.TemperatureC,
+                Summary = i.Summary
+            }).ToArray();
     }
 
 }
