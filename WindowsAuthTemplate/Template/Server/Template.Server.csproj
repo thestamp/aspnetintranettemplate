@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.14.3" />
+    <PackageReference Include="NSwag.MSBuild" Version="13.14.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Client\Template.Client.csproj" />
+    <ProjectReference Include="..\Shared\Template.Shared.csproj" />
+  </ItemGroup>
+
+	<PropertyGroup>
+  <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+</PropertyGroup>
+
+	<!--<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+		<Message Importance="High" Text="$(NSwagExe_Net60) run /variables:Configuration=$(Configuration)" />
+
+		<Exec WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net50) run /variables:Configuration=$(Configuration)" />
+
+		 --><!--Avoids accidently triggering an additional project rebuild.--><!-- 
+		<Delete Files="$(ProjectDir)\obj\$(MSBuildProjectFile).NSwag.targets" />
+	</Target>-->
+	
+			<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+				<Exec Command="$(NSwagExe_Net60) aspnetcore2swagger /infotitle:&quot;$(AssemblyName)&quot; /assembly:$(TargetPath) /output:$(ProjectDir)/OpenApi/swagger.json" />
+</Target>
+
+</Project>
