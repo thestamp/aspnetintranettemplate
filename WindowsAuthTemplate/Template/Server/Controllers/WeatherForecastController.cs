@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Template.Shared;
+using Template.Server.Models;
 
 namespace Template.Server.Controllers
 {
