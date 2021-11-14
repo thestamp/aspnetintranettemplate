@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -19,22 +19,12 @@
     <ProjectReference Include="..\Client\Template.Client.csproj" />
     <ProjectReference Include="..\Shared\Template.Shared.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="OpenApi\" />
+  </ItemGroup>
 
-	<PropertyGroup>
-  <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-</PropertyGroup>
-
-	<!--<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
-		<Message Importance="High" Text="$(NSwagExe_Net60) run /variables:Configuration=$(Configuration)" />
-
-		<Exec WorkingDirectory="$(ProjectDir)" EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net50) run /variables:Configuration=$(Configuration)" />
-
-		 --><!--Avoids accidently triggering an additional project rebuild.--><!-- 
-		<Delete Files="$(ProjectDir)\obj\$(MSBuildProjectFile).NSwag.targets" />
-	</Target>-->
-	
-			<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
-				<Exec Command="$(NSwagExe_Net60) aspnetcore2swagger /infotitle:&quot;$(AssemblyName)&quot; /assembly:$(TargetPath) /output:$(ProjectDir)/OpenApi/swagger.json" />
+<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+	<Exec Command="$(NSwagExe_Net60) aspnetcore2swagger /infotitle:&quot;$(AssemblyName)&quot; /assembly:$(TargetPath) /output:$(ProjectDir)/OpenApi/swagger.json" />
 </Target>
 
 </Project>
