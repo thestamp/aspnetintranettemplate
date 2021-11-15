@@ -16,10 +16,10 @@ An opinionated template for intranet Line-of-business web applications
 - SwaggerUI
 - Strongly-typed OpenApi client
 - Automatic OpenApi client updates using NSwag MSBuild and Connected Services
+- Windows Authentication
 
 # Planned Features
 - DDD Services
-- Windows Authentication
 - AzureAd Authentication
 
 # Feature Wishlist
