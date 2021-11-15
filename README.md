@@ -1,10 +1,10 @@
 
 
-# An [Agile Development](https://en.wikipedia.org/wiki/Agile_software_development) minded, [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)  Web Application Template
+# An [Agile](https://en.wikipedia.org/wiki/Agile_software_development)-minded [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture)  Web Application Template
 
-This is an *opinionated* intranet Line-of-business web application intranet template, great for **small to medium**-scale web applications with flexibility to grow.
+This is an *opinionated* intranet Line-of-business web application intranet template, great for **small to medium**-scale web applications with maintainability in mind and flexibility to grow.
   
-  ## Agile Manifesto
+  ## Agile Development Manifesto
   - **Individuals and interactions** over processes and tools
   - **Working software** over comprehensive documentation
   - **Customer collaboration** over contract negotiation
