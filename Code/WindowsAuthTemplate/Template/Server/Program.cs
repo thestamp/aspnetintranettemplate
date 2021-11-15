@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.ResponseCompression;
+using Microsoft.AspNetCore.Server.IISIntegration;
 
 //Currently, as of nswag 13.14.3, nswag.msbuild doesn't support the minimal program code structure. To use this, you will need to use the following program.cs code below
 
@@ -32,6 +33,7 @@ public class Startup
         services.AddControllersWithViews();
         services.AddRazorPages();
         services.AddOpenApiDocument();
+        services.AddAuthentication(IISDefaults.AuthenticationScheme);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -58,6 +60,7 @@ public class Startup
 
         app.UseRouting();
 
+        app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
         {
