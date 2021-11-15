@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Client\Template.Client.csproj" />
-    <ProjectReference Include="..\Shared\Template.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="OpenApi\" />

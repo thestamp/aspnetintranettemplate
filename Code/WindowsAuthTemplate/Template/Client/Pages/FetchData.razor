@@ -1,7 +1,7 @@
 ﻿@page "/fetchdata"
 @using ServiceClients
-@inject HttpClient Http
-@inject UserServerApiClient client
+@using Template.Client.Services
+@inject WeatherForecastService service
 
 <PageTitle>Weather forecast</PageTitle>
 
@@ -43,7 +43,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-
-        forecasts = await client.GetAsync();
+        forecasts = await service.GetWeatherForecasts();
     }
 }
