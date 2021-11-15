@@ -1,6 +1,5 @@
-# Aspnet Intranet Template
+# Aspnet Intranet Web Application Template
 An opinionated template for intranet Line-of-business web applications
-
 
 # Considerations
 - Great for **small to medium**-scale web applications, with flexibility to grow
@@ -16,7 +15,6 @@ An opinionated template for intranet Line-of-business web applications
   - **Evolutionary refinement** is given more importance than pursuit of initial perfection.
 
 # Features
-- [Service-Oriented Architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
 - Blazor Webassembly
 - SwaggerUI
 - Strongly-typed OpenApi client
