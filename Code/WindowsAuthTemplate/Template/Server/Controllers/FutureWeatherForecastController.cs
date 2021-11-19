@@ -8,7 +8,7 @@ namespace Template.User.Server.Controllers
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class FutureWeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
@@ -18,7 +18,7 @@ namespace Template.User.Server.Controllers
         private readonly ILogger<WeatherForecastController> _logger;
         private readonly WeatherForecastApiClient _client;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastApiClient client)
+        public FutureWeatherForecastController(ILogger<WeatherForecastController> logger, WeatherForecastApiClient client)
         {
             _logger = logger;
             _client = client;

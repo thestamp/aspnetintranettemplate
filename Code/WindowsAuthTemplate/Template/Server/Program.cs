@@ -40,7 +40,7 @@ public class Startup
 
         var serverAddress = Configuration.GetSection("AppOptions")["ServerBaseAddress"];
 
-        services.AddScoped(sp => new CoreServerApiClient(serverAddress, new HttpClient { BaseAddress = new Uri(serverAddress) }));
+        services.AddScoped(sp => new WeatherForecastApiClient(serverAddress, new HttpClient { BaseAddress = new Uri(serverAddress) }));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

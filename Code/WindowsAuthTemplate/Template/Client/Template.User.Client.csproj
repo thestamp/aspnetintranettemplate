@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="..\Server\OpenApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="Template.User.Client.UserServer" ClassName="UserServerApiClient" Link="OpenAPIs\swagger.json" />
+    <OpenApiReference Include="..\Server\OpenApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="Template.User.Client.UserServer" ClassName="{controller}ApiClient" Link="OpenAPIs\swagger.json" />
   </ItemGroup>
 
   <ItemGroup>

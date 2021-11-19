@@ -6,6 +6,29 @@
     "version": "1.0.0"
   },
   "paths": {
+    "/FutureWeatherForecast": {
+      "get": {
+        "tags": [
+          "FutureWeatherForecast"
+        ],
+        "operationId": "FutureWeatherForecast_Get",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
