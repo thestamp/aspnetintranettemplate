@@ -1,4 +1,4 @@
-namespace Template.Server.Models
+namespace Template.User.Server.Models
 {
     public class WeatherForecast
     {

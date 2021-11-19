@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Template.Server.Models;
+using Template.User.Server.Models;
 
-namespace Template.Server.Controllers
+namespace Template.User.Server.Controllers
 {
     [Authorize]
     [ApiController]

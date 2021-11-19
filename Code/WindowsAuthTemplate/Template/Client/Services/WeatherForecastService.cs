@@ -1,11 +1,6 @@
 ﻿using ServiceClients;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Template.Client.Services
+namespace Template.User.Client.Services
 {
     public class WeatherForecastService
     {
