@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="6.0.0" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.14.4" />
+    <PackageReference Include="NSwag.MSBuild" Version="13.14.4" />
+  </ItemGroup>
+
+	<Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">
+		<Exec Command="$(NSwagExe_Net60) aspnetcore2swagger /infotitle:&quot;$(AssemblyName)&quot; /assembly:$(TargetPath) /output:$(ProjectDir)/OpenApi/swagger.json" />
+	</Target>
+
+</Project>
