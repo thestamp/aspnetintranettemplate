@@ -1,10 +1,10 @@
-﻿using ServiceClients;
+﻿using Template.User.Client.UserServer;
 
 namespace Template.User.Client.Services
 {
     public class WeatherForecastService
     {
-        private UserServerApiClient _apiClient;
+        private readonly UserServerApiClient _apiClient;
         public WeatherForecastService(UserServerApiClient apiClient)
         {
             _apiClient = apiClient;

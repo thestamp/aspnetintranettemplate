@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Server.IISIntegration;
-using ServiceClients;
+using Template.User.Server.CoreServer;
+
 
 namespace Template.User.Server;
 //Currently, as of nswag 13.14.3, nswag.msbuild doesn't support the minimal program code structure. To use this, you will need to use the following program.cs code below

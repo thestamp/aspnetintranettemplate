@@ -32,7 +32,7 @@
     <Folder Include="OpenApi\" />
   </ItemGroup>
   <ItemGroup>
-    <OpenApiReference Include="..\Template.Core.Server\OpenApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="ServiceClients" ClassName="CoreServerApiClient" Link="OpenAPIs\swagger.json" />
+    <OpenApiReference Include="..\Template.Core.Server\OpenApi\swagger.json" CodeGenerator="NSwagCSharp" Namespace="Template.User.Server.CoreServer" ClassName="CoreServerApiClient" Link="OpenAPIs\swagger.json" />
   </ItemGroup>
 
 <Target Name="NSwag" AfterTargets="PostBuildEvent" Condition=" '$(Configuration)' == 'Debug' ">

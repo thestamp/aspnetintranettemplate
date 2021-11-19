@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ServiceClients;
+using Template.User.Server.CoreServer;
+
 
 namespace Template.User.Server.Controllers
 {
@@ -28,14 +29,6 @@ namespace Template.User.Server.Controllers
         {
             
             return _client.GetAsync().Result;
-
-            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //{
-            //    Date = DateTime.Now.AddDays(index),
-            //    TemperatureC = Random.Shared.Next(-20, 55),
-            //    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            //})
-            //.ToArray();
         }
     }
 }
