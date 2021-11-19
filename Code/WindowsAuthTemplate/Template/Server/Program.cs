@@ -37,6 +37,9 @@ public class Startup
         services.AddOpenApiDocument();
         services.AddAuthentication(IISDefaults.AuthenticationScheme);
 
+        var serverAddress = Configuration.GetSection("AppOptions")["ServerBaseAddress"];
+
+        services.AddScoped(sp => new CoreServerApiClient(serverAddress, new HttpClient { BaseAddress = new Uri(serverAddress) }));
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
