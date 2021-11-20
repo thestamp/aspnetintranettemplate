@@ -1,7 +1,8 @@
 
 
 # An [Agile](https://en.wikipedia.org/wiki/Agile_software_development)-minded [SOA](https://en.wikipedia.org/wiki/Service-oriented_architecture)  Web Application Template
-
+![NetworkLayer](assets/diagrams/NetworkLayer.png)
+[NetworkLayer]
 This is an *opinionated* intranet Line-of-business web application intranet template, great for **small to medium**-scale web applications with maintainability in mind and flexibility to grow.
   
   ## Agile Development Manifesto
