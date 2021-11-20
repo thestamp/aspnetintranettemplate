@@ -4,7 +4,9 @@
 
 This is an *opinionated* intranet Line-of-business web application intranet template, great for **small to medium**-scale web applications with maintainability in mind and flexibility to grow.
   
-  ## Agile Development Manifesto
+![Simple Architecture](arc-simple.png)
+  
+## Agile Development Manifesto
   - **Individuals and interactions** over processes and tools
   - **Working software** over comprehensive documentation
   - **Customer collaboration** over contract negotiation
