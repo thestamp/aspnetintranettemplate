@@ -11,7 +11,7 @@ pipelines:
           - dotnet restore
           - dotnet build --no-restore --configuration Release
           #- dotnet test --no-build --configuration Release --test-adapter-path:. --logger:"junit;LogFilePath=$REPORTS_PATH/junit.xml"
-          - dotnet publish Server/Template.Server.csproj -o publish
+          - dotnet publish Code/WindowsAuthTemplate/Template/Server/Template.Server.csproj -o publish
         artifacts: # defining the artifacts to be passed to each future step.
           - publish/**
     - step:
