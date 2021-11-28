@@ -1,7 +1,7 @@
 pipelines:
   default:
     - step:
-        runs-on: self.hosted
+        #runs-on: self.hosted #uncomment if you want this to run on self-hosted pipelines
         image: mcr.microsoft.com/dotnet/sdk:6.0
         name: Build and Test
         caches:
@@ -15,7 +15,7 @@ pipelines:
         artifacts: # defining the artifacts to be passed to each future step.
           - publish/**
     - step:
-        runs-on: self.hosted
+        #runs-on: self.hosted #uncomment if you want this to run on self-hosted pipelines
         image: atlassian/default-image:2
         name: zip and deploy
         script:
