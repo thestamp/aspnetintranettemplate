@@ -1,0 +1,34 @@
+pipelines:
+  default:
+    - step:
+        runs-on: self.hosted
+        image: mcr.microsoft.com/dotnet/sdk:6.0
+        name: Build and Test
+        caches:
+          - dotnetcore
+        script:
+          - REPORTS_PATH=./test-reports/build_${BITBUCKET_BUILD_NUMBER}
+          - dotnet restore
+          - dotnet build --no-restore --configuration Release
+          #- dotnet test --no-build --configuration Release --test-adapter-path:. --logger:"junit;LogFilePath=$REPORTS_PATH/junit.xml"
+          - dotnet publish Server/LanHub.Web.Server.csproj -o publish
+        artifacts: # defining the artifacts to be passed to each future step.
+          - publish/**
+    - step:
+        runs-on: self.hosted
+        image: atlassian/default-image:2
+        name: zip and deploy
+        script:
+          - cd publish
+          - zip -r ../publish.zip *
+          - cd ../
+          - pipe: microsoft/azure-web-apps-deploy:1.0.0
+            variables:
+              AZURE_APP_ID: $AZURE_SP_ID
+              AZURE_PASSWORD: $AZURE_SP_PASSWORD
+              AZURE_TENANT_ID: $AZURE_SP_TENANT_ID
+              AZURE_RESOURCE_GROUP: $AZURE_APP_RESOURCE_GROUP
+              AZURE_APP_NAME: $AZURE_APP_NAME
+              ZIP_FILE: 'publish.zip'
+        artifacts: # defining the artifacts to be passed to each future step.
+          - publish.zip
